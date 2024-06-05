@@ -69,6 +69,7 @@ nmap 의 특징
 2. exploit db 사이트 이용
 3. searchsploit 명령어 사용 -> exploit db와 연동되어있는 도구이다.
 
+
 ![이미지](/assets/ignite/4.png)
 
 새로운 취약점이 발견되었다.
