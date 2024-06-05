@@ -164,6 +164,8 @@ if __name__ == '__main__':
 
 ```
 
+
+
 결론적으로 위 코드를 봤을때 session_storage를 확인해 session_id를 변경하여 admin 계정으로 로그인해야 flag 값을 획득할 수 있는 것이다.
 
 ![Untitled](/assets/img/Dreamhack/Cookie%20&%20Session%20basic/Untitled3.png)
@@ -178,4 +180,4 @@ guest 계정으로 로그인 했을 시 sessionid 이다 여러번 로그인을 
 
 ![Untitled](/assets/img/Dreamhack/Cookie%20&%20Session%20basic/Untitled6.png)
 
-flag 값 획득!
+flag 값 획득!!!!
