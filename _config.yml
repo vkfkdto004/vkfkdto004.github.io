@@ -16,11 +16,11 @@ minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "
 
 # Site Settings
 locale                   : "en-US"
-title                    : "WooSeop hack blog"
+title                    : "JeffSec hack blog"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "WooSeopKim"
-description              : "my hack practice blog"
+name                     : "JeffKim"
+description              : "CTF WriteUp & hack machine WriteUp & Try Anything"
 url                      : "https://vkfkdto004.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -104,10 +104,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "WooSeop Kim"
+  name             : "Jeff Kim"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "junior hack blog "
-  location         : "Seoul"
+  bio              : "Hack Exercise Blog"
+  location         : "AnyWhere"
   email            :
   links:
     - label: "Email"
