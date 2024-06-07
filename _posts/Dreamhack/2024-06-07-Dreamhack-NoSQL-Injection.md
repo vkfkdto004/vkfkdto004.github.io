@@ -71,7 +71,7 @@ guest
 
 2. filter 우회
 filter 함수는 admin, dh, admi 문자열을 필터링하지만 정규표현식에서 임의 문자를 표현하는 `.`을 이용하여 쉽게 우회한다
-```
+```bash
 /login?uid[$regex]=ad.in&upw[$regex]=D.{*
 
 admin
