@@ -96,8 +96,10 @@ for i in range(32):
             break
     
     print(f'FLAG: DH{{{flag}}}')
+```
 
 # kali linux 에서 코드 작성 후 실행
+```
 └─$ python3 nosql.py 
 FLAG: DH{8}
 FLAG: DH{89}
